@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bunifu Lab · Developer & Builder</title>
+<title>Mark Mgharo · Developer & Builder</title>
 <meta name="description" content="Mark · Developer building useful tools for East Africa and beyond.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -374,6 +374,41 @@ body::before {
 }
 .footer a:hover { color: var(--teal); border-color: var(--teal); }
 
+/* ── Visitor counter ── */
+.visitor-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 6px 14px 6px 8px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink3);
+  opacity: 0;
+  animation: riseIn 0.6s cubic-bezier(0.22,1,0.36,1) 0.5s forwards;
+}
+
+.counter-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 3px rgba(26,107,92,0.15);
+  animation: pulse 2.5s infinite;
+  flex-shrink: 0;
+}
+
+.counter-number {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  min-width: 20px;
+  display: inline-block;
+}
+
 /* ── Responsive ── */
 @media (max-width: 480px) {
   .page { padding: 40px 16px 60px; }
@@ -398,6 +433,11 @@ body::before {
         <circle cx="12" cy="9" r="2.5"/>
       </svg>
       Mombasa, Kenya
+    </div>
+    <div class="visitor-counter">
+      <span class="counter-dot"></span>
+      <span id="visitorCount" class="counter-number">...</span>
+      <span>visitors</span>
     </div>
   </header>
 
@@ -450,7 +490,7 @@ body::before {
       </div>
     </a>
 
-    <!-- Hair Salon POS — coming soon placeholder -->
+    <!-- Happy Hair POS — coming soon placeholder -->
     <a href="#" class="link-card blue" style="cursor:default;" onclick="return false;">
       <div class="card-icon blue-bg">
         <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -460,7 +500,7 @@ body::before {
       </div>
       <div class="card-body">
         <div class="card-title">Hair Salon POS</div>
-        <div class="card-desc">Salon management & POS system for beauty businesses</div>
+        <div class="card-desc">Salon management & POS system for East African beauty businesses</div>
       </div>
       <span class="card-tag tag-soon">Coming Soon</span>
       <div class="card-arrow">
@@ -488,7 +528,7 @@ body::before {
         </svg>
         WhatsApp
       </a>
-      <a href="mailto:bunifulab@gmail.com" class="social-btn">
+      <a href="mailto:techiemak@gmail.com" class="social-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
           <polyline points="22,6 12,13 2,6"/>
@@ -508,5 +548,30 @@ body::before {
   </footer>
 
 </div>
+<script>
+// ── Visitor Counter ──────────────────────────────────────────────
+// Uses api.countapi.xyz — free, no account needed, persists forever
+// Namespace: stickmanke | Key: linktree-visits
+(async () => {
+  const el = document.getElementById('visitorCount');
+  try {
+    const res = await fetch('https://api.countapi.xyz/hit/stickmanke/linktree-visits');
+    const data = await res.json();
+    const count = data.value;
+
+    // Animate counting up
+    const start = Math.max(0, count - 30);
+    let current = start;
+    const step = () => {
+      current = Math.min(current + Math.ceil((count - start) / 20), count);
+      el.textContent = current.toLocaleString();
+      if (current < count) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  } catch (e) {
+    el.textContent = '—';
+  }
+})();
+</script>
 </body>
 </html>
