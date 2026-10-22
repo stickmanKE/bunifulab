@@ -1,41 +1,26 @@
-# stickmanKE · Personal Links Page
+# Bunifulab Link Hub
 
-A clean, animated personal link-in-bio page hosted on Vercel.
+A responsive personal app launchpad for Mark Mgharo, deployed on Vercel.
 
-🔗 **Live:** [stickmanke.vercel.app]([https://stickmanke.vercel.app](https://bunifulab.vercel.app/))
+## Included
+- `index.html` — complete responsive single-page portfolio
+- `DESIGN.md` — design principles, palette, typography, components, and QA checklist
+- `vercel.json` — simple static deployment configuration
 
-## Adding New Projects
+## Apps shown
+- **Chakula Chetu** — `https://chakula-chetu.vercel.app/` (Kenyan baby-weaning planner and sensory-friendly feeding guide)
+- **Mauzo** — `https://bunifulab.pythonanywhere.com/accounts/login/`
+- **UremboPro** — `https://techiemak.pythonanywhere.com/` (salon management demo)
+- **Toyota ERC Unlock** — `https://erc-unlock.vercel.app/`
+- **SlipDrop** — `https://github.com/stickmanKE/slipdrop`
+- **Raspberry Pi Media Server** — links to the developer's GitHub profile until its exact repository URL is confirmed
 
+## Deploy
+1. Replace the files in your existing `stickmanKE/bunifulab` repository with these files.
+2. Commit and push to the `main` branch.
+3. Vercel should redeploy automatically if the repository is already connected.
 
-```html
-<a href="YOUR_LINK" target="_blank" rel="noopener" class="link-card teal">
-  <div class="card-icon teal-bg">
-    <!-- paste an SVG icon here -->
-  </div>
-  <div class="card-body">
-    <div class="card-title">Project Name</div>
-    <div class="card-desc">Short description of the project</div>
-  </div>
-  <span class="card-tag tag-live">Live</span>
-  <div class="card-arrow">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-    </svg>
-  </div>
-</a>
-```
+This project is static HTML/CSS/JS and does not require a build command.
 
-### Color themes available:
-- `teal` — green/teal accent
-- `gold` — warm gold accent  
-- `blue` — deep blue accent
-- `ink` — neutral dark accent
-
-### Tag options:
-- `tag-live` — green "Live" badge
-- `tag-open` — blue "Open Source" badge
-- `tag-soon` — amber "Coming Soon" badge
-
-## Deployment
-
-Push to GitHub then import to [Vercel](https://vercel.com) — deploys automatically on every push.
+## Before publishing
+Verify the SlipDrop repository URL and add the exact Raspberry Pi Media Server repository link if it differs from the profile URL. Avoid listing unfinished apps as live.
