@@ -2,11 +2,10 @@
 
 A clean, animated personal link-in-bio page hosted on Vercel.
 
-🔗 **Live:** [stickmanke.vercel.app](https://stickmanke.vercel.app)
+🔗 **Live:** [stickmanke.vercel.app]([https://stickmanke.vercel.app](https://bunifulab.vercel.app/))
 
 ## Adding New Projects
 
-Open `index.html` and copy this block inside the `.links-section` div:
 
 ```html
 <a href="YOUR_LINK" target="_blank" rel="noopener" class="link-card teal">
